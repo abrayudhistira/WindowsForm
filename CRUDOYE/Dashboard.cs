@@ -44,8 +44,8 @@ namespace CRUDOYE
 
         private void btnToFilm_Click(object sender, EventArgs e)
         {
-            KelolaFilm kelolaFilmForm = new KelolaFilm();
-            kelolaFilmForm.Show();
+            LihatFilm lihatFilmForm = new LihatFilm();
+            lihatFilmForm.Show();
             this.Hide();
         }
 

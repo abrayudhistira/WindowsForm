@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace CRUDOYE
 {
-    public partial class KelolaFilm : Form
+    public partial class TambahFilm : Form
     {
         private string connectionString = @"Data Source=MSI\ABRA;Initial Catalog=CRUD_COBA;Integrated Security=True";
-        public KelolaFilm()
+        public TambahFilm()
         {
             InitializeComponent();
         }
@@ -35,7 +35,6 @@ namespace CRUDOYE
             string sinopsis = textSinopsis.Text;
             decimal rating;
 
-            // Validasi input
             if (string.IsNullOrEmpty(judul) || string.IsNullOrEmpty(genre) || string.IsNullOrEmpty(sutradara) ||
                 !int.TryParse(textTahunRilis.Text, out tahunRilis) || !int.TryParse(textDurasi.Text, out durasi) ||
                 !decimal.TryParse(textRating.Text, out rating))
@@ -44,49 +43,47 @@ namespace CRUDOYE
                 return;
             }
 
-            // Konversi gambar poster menjadi byte array (jika ada)
             byte[] posterBytes = null;
             if (picPoster.Image != null)
             {
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    // Simpan gambar ke stream dengan format aslinya
                     picPoster.Image.Save(ms, picPoster.Image.RawFormat);
                     posterBytes = ms.ToArray();
                 }
             }
 
-            // Insert ke database
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "INSERT INTO Film (judul, genre, sutradara, tahun_rilis, durasi, sinopsis, rating, poster) " +
-                                   "VALUES (@Judul, @Genre, @Sutradara, @TahunRilis, @Durasi, @Sinopsis, @Rating, @Poster)";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@Judul", judul);
-                    cmd.Parameters.AddWithValue("@Genre", genre);
-                    cmd.Parameters.AddWithValue("@Sutradara", sutradara);
-                    cmd.Parameters.AddWithValue("@TahunRilis", tahunRilis);
-                    cmd.Parameters.AddWithValue("@Durasi", durasi);
-                    cmd.Parameters.AddWithValue("@Sinopsis", sinopsis);
-                    cmd.Parameters.AddWithValue("@Rating", rating);
-
-                    // Jika posterBytes null, masukkan DBNull.Value
-                    if (posterBytes != null)
-                        cmd.Parameters.AddWithValue("@Poster", posterBytes);
-                    else
-                        cmd.Parameters.AddWithValue("@Poster", DBNull.Value);
-
-                    int result = cmd.ExecuteNonQuery();
-                    if (result > 0)
+                    using (SqlCommand cmd = new SqlCommand("spTambahFilm", con))
                     {
-                        MessageBox.Show("Film berhasil ditambahkan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Gagal menambahkan film.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@Judul", judul);
+                        cmd.Parameters.AddWithValue("@Genre", genre);
+                        cmd.Parameters.AddWithValue("@Sutradara", sutradara);
+                        cmd.Parameters.AddWithValue("@TahunRilis", tahunRilis);
+                        cmd.Parameters.AddWithValue("@Durasi", durasi);
+                        cmd.Parameters.AddWithValue("@Sinopsis", sinopsis);
+                        cmd.Parameters.AddWithValue("@Rating", rating);
+
+                        if (posterBytes != null)
+                            cmd.Parameters.AddWithValue("@Poster", posterBytes);
+                        else
+                            cmd.Parameters.AddWithValue("@Poster", DBNull.Value);
+
+                        int result = cmd.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Film berhasil ditambahkan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal menambahkan film.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

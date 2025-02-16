@@ -1,6 +1,6 @@
 ﻿namespace CRUDOYE
 {
-    partial class KelolaFilm
+    partial class TambahFilm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnHapusFilm = new MetroFramework.Controls.MetroButton();
             this.btnLihatFilm = new MetroFramework.Controls.MetroButton();
-            this.btnEditFilm = new MetroFramework.Controls.MetroButton();
             this.btnTambahFilm = new MetroFramework.Controls.MetroButton();
             this.textJudul = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.textSinopsis = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textRating = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnPilihPoster = new MetroFramework.Controls.MetroButton();
             this.btnToDashboard = new MetroFramework.Controls.MetroButton();
             this.picPoster = new System.Windows.Forms.PictureBox();
@@ -60,9 +58,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.30189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(311, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 29);
+            this.label2.Size = new System.Drawing.Size(173, 29);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Film";
+            this.label2.Text = "Tambah Film";
             // 
             // btnHapusFilm
             // 
@@ -83,15 +81,6 @@
             this.btnLihatFilm.Text = "Lihat";
             this.btnLihatFilm.UseSelectable = true;
             this.btnLihatFilm.Click += new System.EventHandler(this.btnLihatFilm_Click);
-            // 
-            // btnEditFilm
-            // 
-            this.btnEditFilm.Location = new System.Drawing.Point(757, 137);
-            this.btnEditFilm.Name = "btnEditFilm";
-            this.btnEditFilm.Size = new System.Drawing.Size(69, 55);
-            this.btnEditFilm.TabIndex = 7;
-            this.btnEditFilm.Text = "Edit";
-            this.btnEditFilm.UseSelectable = true;
             // 
             // btnTambahFilm
             // 
@@ -225,15 +214,6 @@
             this.textRating.Size = new System.Drawing.Size(202, 20);
             this.textRating.TabIndex = 23;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(754, 116);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Menu Lain";
-            // 
             // btnPilihPoster
             // 
             this.btnPilihPoster.Location = new System.Drawing.Point(540, 375);
@@ -264,7 +244,7 @@
             this.picPoster.TabIndex = 26;
             this.picPoster.TabStop = false;
             // 
-            // KelolaFilm
+            // TambahFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -272,7 +252,6 @@
             this.Controls.Add(this.btnToDashboard);
             this.Controls.Add(this.btnPilihPoster);
             this.Controls.Add(this.picPoster);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textRating);
             this.Controls.Add(this.label7);
@@ -290,10 +269,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnHapusFilm);
             this.Controls.Add(this.btnLihatFilm);
-            this.Controls.Add(this.btnEditFilm);
             this.Controls.Add(this.btnTambahFilm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "KelolaFilm";
+            this.Name = "TambahFilm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Film";
             this.Load += new System.EventHandler(this.KelolaFilm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
@@ -307,7 +286,6 @@
         private System.Windows.Forms.Label label2;
         private MetroFramework.Controls.MetroButton btnHapusFilm;
         private MetroFramework.Controls.MetroButton btnLihatFilm;
-        private MetroFramework.Controls.MetroButton btnEditFilm;
         private MetroFramework.Controls.MetroButton btnTambahFilm;
         private System.Windows.Forms.TextBox textJudul;
         private System.Windows.Forms.Label label1;
@@ -323,7 +301,6 @@
         private System.Windows.Forms.TextBox textSinopsis;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textRating;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox picPoster;
         private MetroFramework.Controls.MetroButton btnPilihPoster;
         private MetroFramework.Controls.MetroButton btnToDashboard;

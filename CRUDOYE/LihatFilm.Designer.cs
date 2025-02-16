@@ -30,6 +30,7 @@
         {
             this.flpFilms = new System.Windows.Forms.FlowLayoutPanel();
             this.btnToKelola = new MetroFramework.Controls.MetroButton();
+            this.btnToTambah = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // flpFilms
@@ -51,15 +52,27 @@
             this.btnToKelola.UseSelectable = true;
             this.btnToKelola.Click += new System.EventHandler(this.btnToKelola_Click);
             // 
+            // btnToTambah
+            // 
+            this.btnToTambah.Location = new System.Drawing.Point(-4, 223);
+            this.btnToTambah.Name = "btnToTambah";
+            this.btnToTambah.Size = new System.Drawing.Size(85, 36);
+            this.btnToTambah.TabIndex = 2;
+            this.btnToTambah.Text = "Tambah";
+            this.btnToTambah.UseSelectable = true;
+            this.btnToTambah.Click += new System.EventHandler(this.btnToTambah_Click);
+            // 
             // LihatFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 472);
+            this.Controls.Add(this.btnToTambah);
             this.Controls.Add(this.btnToKelola);
             this.Controls.Add(this.flpFilms);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "LihatFilm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LihatFilm";
             this.Load += new System.EventHandler(this.LihatFilm_Load_1);
             this.ResumeLayout(false);
@@ -70,5 +83,6 @@
 
         private System.Windows.Forms.FlowLayoutPanel flpFilms;
         private MetroFramework.Controls.MetroButton btnToKelola;
+        private MetroFramework.Controls.MetroButton btnToTambah;
     }
 }

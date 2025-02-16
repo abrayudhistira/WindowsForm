@@ -49,7 +49,7 @@ namespace CRUDOYE
                         // Panel untuk setiap film
                         Panel panelFilm = new Panel
                         {
-                            Size = new Size(200, 450),
+                            Size = new Size(200, 500),
                             Margin = new Padding(10),
                             BorderStyle = BorderStyle.FixedSingle,
                             Cursor = Cursors.Hand
@@ -147,6 +147,40 @@ namespace CRUDOYE
                             TextAlign = ContentAlignment.MiddleLeft
                         };
 
+                        Button btnEdit = new Button
+                        {
+                            Text = "Edit",
+                            Size = new Size(60, 30),
+                            Location = new Point(30, 450)
+                        };
+
+                        int idFilm = Convert.ToInt32(row["id_film"]);
+                        btnEdit.Click += (s, e) =>
+                        {
+                            EditFilm editFilmForm = new EditFilm(idFilm);
+                            editFilmForm.ShowDialog();
+                            LoadFilms();
+                        };
+                        Button btnHapus = new Button
+                        {
+                            Text = "Hapus",
+                            Size = new Size(60, 30),
+                            Location = new Point(120, 450),
+                            BackColor = Color.Red,
+                            ForeColor = Color.White
+                        };
+
+                        btnHapus.Click += (s, e) =>
+                        {
+                            // Konfirmasi Hapus
+                            var result = MessageBox.Show($"Apakah Anda yakin ingin menghapus film '{judul}'?",
+                                "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                HapusFilm(idFilm);
+                            }
+                        };
                         // Tambahkan ke Panel Film
                         panelFilm.Controls.Add(pb);
                         panelFilm.Controls.Add(lblJudul);
@@ -156,11 +190,44 @@ namespace CRUDOYE
                         panelFilm.Controls.Add(lblDurasi);
                         panelFilm.Controls.Add(lblSinopsis);
                         panelFilm.Controls.Add(lblRating);
+                        panelFilm.Controls.Add(btnEdit);
+                        panelFilm.Controls.Add(btnHapus);
 
                         // Tambahkan ke FlowLayoutPanel
                         flpFilms.Controls.Add(panelFilm);
                     }
                 }
+            }
+        }
+
+        private void HapusFilm(int idFilm)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("spHapusFilm", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IdFilm", idFilm);
+
+                        int result = cmd.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Film berhasil dihapus.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadFilms();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal menghapus film.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
             }
         }
 
@@ -178,8 +245,15 @@ namespace CRUDOYE
 
         private void btnToKelola_Click(object sender, EventArgs e)
         {
-            KelolaFilm kelolaFilmForm = new KelolaFilm();
-            kelolaFilmForm.Show();
+            Dashboard dashboardForm = new Dashboard();
+            dashboardForm.Show();
+            this.Hide();
+        }
+
+        private void btnToTambah_Click(object sender, EventArgs e)
+        {
+            TambahFilm tambahFilmForm = new TambahFilm();
+            tambahFilmForm.Show();
             this.Hide();
         }
     }
