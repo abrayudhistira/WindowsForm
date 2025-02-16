@@ -42,6 +42,7 @@ namespace CRUDOYE
                         txtDurasi.Text = reader["durasi"].ToString();
                         txtSinopsis.Text = reader["sinopsis"].ToString();
                         txtRating.Text = reader["rating"].ToString();
+                        textHarga.Text = reader["harga"].ToString();
 
                         byte[] posterBytes = reader["poster"] as byte[];
                         if (posterBytes != null)
@@ -89,6 +90,7 @@ namespace CRUDOYE
                     cmd.Parameters.AddWithValue("@durasi", txtDurasi.Text);
                     cmd.Parameters.AddWithValue("@sinopsis", txtSinopsis.Text);
                     cmd.Parameters.AddWithValue("@rating", txtRating.Text);
+                    cmd.Parameters.AddWithValue("@harga", textHarga.Text);
 
                     // Convert image to byte array
                     if (pbPoster.Image != null)

@@ -54,16 +54,21 @@ namespace CRUDOYE
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "SELECT COUNT(1) FROM Users WHERE Username=@Username AND Password=@Password";
+                    string query = "SELECT id, Username FROM Users WHERE Username=@Username AND Password=@Password";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@Username", username);
                     cmd.Parameters.AddWithValue("@Password", password);
 
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    if (count == 1)
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
                     {
-                        MessageBox.Show("Login berhasil!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Ambil id_user dan username dari hasil query
+                        int userId = Convert.ToInt32(dr["id"]);
+                        string userNameDb = dr["Username"].ToString();
+
+                        // Simpan data ke session
+                        UserSession.UserId = userId;
+                        UserSession.Username = userNameDb;
 
                         // Buka form utama setelah login berhasil
                         Dashboard mainForm = new Dashboard();
@@ -96,19 +101,7 @@ namespace CRUDOYE
 
         private void btnTogglePassword_Click(object sender, EventArgs e)
         {
-            // Jika password sedang terlihat
-            if (isPasswordVisible)
-            {
-                textPassword.PasswordChar = '•';
-                btnTogglePassword.Text = "👁";
-                isPasswordVisible = false;
-            }
-            else
-            {
-                textPassword.PasswordChar = '\0';
-                btnTogglePassword.Text = "🙈";
-                isPasswordVisible = true;
-            }
+
         }
     }
 }

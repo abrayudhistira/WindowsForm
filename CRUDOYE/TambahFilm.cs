@@ -32,12 +32,13 @@ namespace CRUDOYE
             string sutradara = textSutradara.Text;
             int tahunRilis;
             int durasi;
+            int harga;
             string sinopsis = textSinopsis.Text;
             decimal rating;
 
             if (string.IsNullOrEmpty(judul) || string.IsNullOrEmpty(genre) || string.IsNullOrEmpty(sutradara) ||
                 !int.TryParse(textTahunRilis.Text, out tahunRilis) || !int.TryParse(textDurasi.Text, out durasi) ||
-                !decimal.TryParse(textRating.Text, out rating))
+                !decimal.TryParse(textRating.Text, out rating) || !int.TryParse(textHarga.Text, out harga))
             {
                 MessageBox.Show("Semua kolom harus diisi dengan benar.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -69,6 +70,7 @@ namespace CRUDOYE
                         cmd.Parameters.AddWithValue("@Durasi", durasi);
                         cmd.Parameters.AddWithValue("@Sinopsis", sinopsis);
                         cmd.Parameters.AddWithValue("@Rating", rating);
+                        cmd.Parameters.AddWithValue("@Harga", harga);
 
                         if (posterBytes != null)
                             cmd.Parameters.AddWithValue("@Poster", posterBytes);

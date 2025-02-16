@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.btnHapusFilm = new MetroFramework.Controls.MetroButton();
-            this.btnLihatFilm = new MetroFramework.Controls.MetroButton();
             this.btnTambahFilm = new MetroFramework.Controls.MetroButton();
             this.textJudul = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +47,8 @@
             this.btnPilihPoster = new MetroFramework.Controls.MetroButton();
             this.btnToDashboard = new MetroFramework.Controls.MetroButton();
             this.picPoster = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textHarga = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,29 +62,9 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Tambah Film";
             // 
-            // btnHapusFilm
-            // 
-            this.btnHapusFilm.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btnHapusFilm.Location = new System.Drawing.Point(757, 198);
-            this.btnHapusFilm.Name = "btnHapusFilm";
-            this.btnHapusFilm.Size = new System.Drawing.Size(69, 55);
-            this.btnHapusFilm.TabIndex = 9;
-            this.btnHapusFilm.Text = "Hapus";
-            this.btnHapusFilm.UseSelectable = true;
-            // 
-            // btnLihatFilm
-            // 
-            this.btnLihatFilm.Location = new System.Drawing.Point(757, 259);
-            this.btnLihatFilm.Name = "btnLihatFilm";
-            this.btnLihatFilm.Size = new System.Drawing.Size(69, 55);
-            this.btnLihatFilm.TabIndex = 8;
-            this.btnLihatFilm.Text = "Lihat";
-            this.btnLihatFilm.UseSelectable = true;
-            this.btnLihatFilm.Click += new System.EventHandler(this.btnLihatFilm_Click);
-            // 
             // btnTambahFilm
             // 
-            this.btnTambahFilm.Location = new System.Drawing.Point(360, 433);
+            this.btnTambahFilm.Location = new System.Drawing.Point(540, 423);
             this.btnTambahFilm.Name = "btnTambahFilm";
             this.btnTambahFilm.Size = new System.Drawing.Size(69, 30);
             this.btnTambahFilm.TabIndex = 6;
@@ -194,7 +174,7 @@
             this.textSinopsis.Location = new System.Drawing.Point(242, 137);
             this.textSinopsis.Multiline = true;
             this.textSinopsis.Name = "textSinopsis";
-            this.textSinopsis.Size = new System.Drawing.Size(283, 261);
+            this.textSinopsis.Size = new System.Drawing.Size(283, 316);
             this.textSinopsis.TabIndex = 21;
             // 
             // label8
@@ -244,11 +224,30 @@
             this.picPoster.TabIndex = 26;
             this.picPoster.TabStop = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(22, 412);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 18);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Harga";
+            // 
+            // textHarga
+            // 
+            this.textHarga.Location = new System.Drawing.Point(25, 433);
+            this.textHarga.Name = "textHarga";
+            this.textHarga.Size = new System.Drawing.Size(202, 20);
+            this.textHarga.TabIndex = 29;
+            // 
             // TambahFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 505);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textHarga);
             this.Controls.Add(this.btnToDashboard);
             this.Controls.Add(this.btnPilihPoster);
             this.Controls.Add(this.picPoster);
@@ -267,8 +266,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textJudul);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnHapusFilm);
-            this.Controls.Add(this.btnLihatFilm);
             this.Controls.Add(this.btnTambahFilm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "TambahFilm";
@@ -284,8 +281,6 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private MetroFramework.Controls.MetroButton btnHapusFilm;
-        private MetroFramework.Controls.MetroButton btnLihatFilm;
         private MetroFramework.Controls.MetroButton btnTambahFilm;
         private System.Windows.Forms.TextBox textJudul;
         private System.Windows.Forms.Label label1;
@@ -304,5 +299,7 @@
         private System.Windows.Forms.PictureBox picPoster;
         private MetroFramework.Controls.MetroButton btnPilihPoster;
         private MetroFramework.Controls.MetroButton btnToDashboard;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textHarga;
     }
 }

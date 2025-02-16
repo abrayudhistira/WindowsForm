@@ -27,7 +27,7 @@ namespace CRUDOYE
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string query = "SELECT id_film, judul, poster, genre, sutradara, tahun_rilis, durasi, sinopsis, rating FROM Film";
+                string query = "SELECT id_film, judul, poster, genre, sutradara, tahun_rilis, durasi, sinopsis, rating, harga FROM Film";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -45,6 +45,7 @@ namespace CRUDOYE
                         string durasi = row["durasi"].ToString();
                         string sinopsis = row["sinopsis"].ToString();
                         string rating = row["rating"].ToString();
+                        string harga = row["harga"].ToString();
 
                         // Panel untuk setiap film
                         Panel panelFilm = new Panel
@@ -146,6 +147,13 @@ namespace CRUDOYE
                             Location = new Point(0, 410),
                             TextAlign = ContentAlignment.MiddleLeft
                         };
+                        Label lblHarga = new Label
+                        {
+                            Text = $"Harga: {harga}",
+                            Size = new Size(200, 20),
+                            Location = new Point(0, 430),
+                            TextAlign = ContentAlignment.MiddleLeft
+                        };
 
                         Button btnEdit = new Button
                         {
@@ -190,6 +198,7 @@ namespace CRUDOYE
                         panelFilm.Controls.Add(lblDurasi);
                         panelFilm.Controls.Add(lblSinopsis);
                         panelFilm.Controls.Add(lblRating);
+                        panelFilm.Controls.Add(lblHarga);
                         panelFilm.Controls.Add(btnEdit);
                         panelFilm.Controls.Add(btnHapus);
 

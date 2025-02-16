@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnBrowse = new MetroFramework.Controls.MetroButton();
-            this.pbPoster = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtRating = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,6 +45,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtJudul = new System.Windows.Forms.TextBox();
             this.btnSave = new MetroFramework.Controls.MetroButton();
+            this.pbPoster = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textHarga = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,16 +70,6 @@
             this.btnBrowse.Text = "Pilih Poster";
             this.btnBrowse.UseSelectable = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // pbPoster
-            // 
-            this.pbPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbPoster.Location = new System.Drawing.Point(572, 83);
-            this.pbPoster.Name = "pbPoster";
-            this.pbPoster.Size = new System.Drawing.Size(142, 232);
-            this.pbPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPoster.TabIndex = 43;
-            this.pbPoster.TabStop = false;
             // 
             // label8
             // 
@@ -111,7 +103,7 @@
             this.txtSinopsis.Location = new System.Drawing.Point(274, 83);
             this.txtSinopsis.Multiline = true;
             this.txtSinopsis.Name = "txtSinopsis";
-            this.txtSinopsis.Size = new System.Drawing.Size(283, 261);
+            this.txtSinopsis.Size = new System.Drawing.Size(283, 304);
             this.txtSinopsis.TabIndex = 39;
             // 
             // label6
@@ -201,7 +193,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(392, 379);
+            this.btnSave.Location = new System.Drawing.Point(572, 357);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(69, 30);
             this.btnSave.TabIndex = 28;
@@ -209,11 +201,40 @@
             this.btnSave.UseSelectable = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // pbPoster
+            // 
+            this.pbPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbPoster.Location = new System.Drawing.Point(572, 83);
+            this.pbPoster.Name = "pbPoster";
+            this.pbPoster.Size = new System.Drawing.Size(142, 232);
+            this.pbPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPoster.TabIndex = 43;
+            this.pbPoster.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(54, 346);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 18);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "Harga";
+            // 
+            // textHarga
+            // 
+            this.textHarga.Location = new System.Drawing.Point(57, 367);
+            this.textHarga.Name = "textHarga";
+            this.textHarga.Size = new System.Drawing.Size(202, 20);
+            this.textHarga.TabIndex = 45;
+            // 
             // EditFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textHarga);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.pbPoster);
             this.Controls.Add(this.label8);
@@ -262,5 +283,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtJudul;
         private MetroFramework.Controls.MetroButton btnSave;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textHarga;
     }
 }

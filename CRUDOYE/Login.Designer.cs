@@ -142,6 +142,7 @@
             // 
             // btnTogglePassword
             // 
+            this.btnTogglePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTogglePassword.Location = new System.Drawing.Point(531, 250);
             this.btnTogglePassword.Name = "btnTogglePassword";
             this.btnTogglePassword.Size = new System.Drawing.Size(21, 20);

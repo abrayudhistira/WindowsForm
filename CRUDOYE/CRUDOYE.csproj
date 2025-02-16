@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +67,18 @@
     </Compile>
     <Compile Include="EditFilm.Designer.cs">
       <DependentUpon>EditFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LihatPenjualanFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LihatPenjualanFilm.Designer.cs">
+      <DependentUpon>LihatPenjualanFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TambahPenjualanFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahPenjualanFilm.Designer.cs">
+      <DependentUpon>TambahPenjualanFilm.cs</DependentUpon>
     </Compile>
     <Compile Include="TambahFilm.cs">
       <SubType>Form</SubType>
@@ -93,11 +106,18 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditFilm.resx">
       <DependentUpon>EditFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LihatPenjualanFilm.resx">
+      <DependentUpon>LihatPenjualanFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahPenjualanFilm.resx">
+      <DependentUpon>TambahPenjualanFilm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TambahFilm.resx">
       <DependentUpon>TambahFilm.cs</DependentUpon>
@@ -143,6 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_orang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
